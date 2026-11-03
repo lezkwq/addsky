@@ -94,7 +94,7 @@ function Header() {
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-5 py-3 md:px-10">
         <a href="#inicio" className="shrink-0" aria-label="ADD SKY Escola de Pilotagem — início">
-          <img src={logo.url} alt="ADD SKY Escola de Pilotagem" className="h-12 w-auto mix-blend-multiply" width={1080} height={1080} style={{ aspectRatio: "1", objectFit: "cover", objectPosition: "center", width: "auto" }} />
+          <img src={logo.url} alt="ADD SKY Escola de Pilotagem" className="h-14 w-24 object-cover mix-blend-multiply" width={1080} height={1080} />
         </a>
         <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
           {NAV.map((n) => (
