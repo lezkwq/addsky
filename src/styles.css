@@ -70,9 +70,9 @@
   --alert: oklch(0.45 0.16 22); /* #A51F2A */
   --hero-veil: linear-gradient(
     90deg,
-    oklch(1 0 0 / 0.72) 0%,
-    oklch(1 0 0 / 0.35) 38%,
-    oklch(1 0 0 / 0) 60%
+    oklch(1 0 0 / 0.8) 0%,
+    oklch(1 0 0 / 0.52) 40%,
+    oklch(1 0 0 / 0.08) 62%
   );
   --hero-veil-mobile: linear-gradient(
     180deg,
@@ -80,8 +80,8 @@
     oklch(1 0 0 / 0.55) 38%,
     oklch(1 0 0 / 0.28) 52%,
     oklch(1 0 0 / 0) 68%,
-    oklch(1 0 0 / 0) 78%,
-    oklch(1 0 0 / 0.6) 100%
+    oklch(1 0 0 / 0) 76%,
+    oklch(1 0 0 / 0.72) 100%
   );
   --final-veil: linear-gradient(90deg, oklch(0.2 0.03 255 / 0.82) 0%, oklch(0.2 0.03 255 / 0.25) 70%);
   --shadow-soft: 0 24px 60px -30px oklch(0.36 0.09 255 / 0.35);
