@@ -37,6 +37,8 @@
   --color-deep: var(--deep);
   --color-signal: var(--signal);
   --color-alert: var(--alert);
+  --color-whatsapp: #25d366;
+  --color-whatsapp-foreground: #ffffff;
 }
 
 :root {
