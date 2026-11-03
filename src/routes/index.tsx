@@ -150,7 +150,7 @@ function Hero() {
         <div className="max-w-xl rise">
           <p className="eyebrow mb-6">Blumenau · Santa Catarina · Desde 1997</p>
           <h1 className="text-photo text-[2.6rem] font-semibold leading-[1.02] text-white sm:text-6xl lg:text-[5.25rem]">
-            Seu sonho de pilotar <span className="text-accent">começa aqui.</span>
+            Seu sonho de pilotar <span className="text-white">começa aqui.</span>
           </h1>
           <p className="text-photo mt-6 max-w-md text-base font-medium leading-relaxed text-white md:text-lg">
             Conheça a ADD SKY Escola de Pilotagem, em Blumenau, e descubra como dar os primeiros passos na aviação.
