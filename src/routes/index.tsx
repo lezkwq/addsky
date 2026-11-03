@@ -146,8 +146,6 @@ function Hero() {
         <source media="(min-width: 768px)" srcSet={heroDesktop.url} />
         <img src={heroMobile.url} alt="Aeronave de instrução da ADD SKY em voo rasante" className="h-full w-full object-cover object-center" width={945} height={1677} fetchPriority="high" />
       </picture>
-      <div aria-hidden className="absolute inset-0 -z-10 hidden md:block" style={{ background: "var(--hero-veil)" }} />
-      <div aria-hidden className="absolute inset-0 -z-10 md:hidden" style={{ background: "var(--hero-veil-mobile)" }} />
       <div className="mx-auto flex w-full max-w-7xl flex-col px-5 pb-24 pt-32 md:justify-center md:px-10 md:pb-24">
         <div className="max-w-xl rise">
           <p className="eyebrow mb-6">Blumenau · Santa Catarina · Desde 1997</p>
