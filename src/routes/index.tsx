@@ -148,7 +148,7 @@ function Hero() {
       </picture>
       <div aria-hidden className="absolute inset-0 -z-10 hidden md:block" style={{ background: "var(--hero-veil)" }} />
       <div aria-hidden className="absolute inset-0 -z-10 md:hidden" style={{ background: "var(--hero-veil-mobile)" }} />
-      <div className="mx-auto flex w-full max-w-7xl flex-col px-5 pb-10 pt-32 md:justify-center md:px-10 md:pb-24">
+      <div className="mx-auto flex w-full max-w-7xl flex-col px-5 pb-24 pt-32 md:justify-center md:px-10 md:pb-24">
         <div className="max-w-xl rise">
           <p className="eyebrow mb-6">Blumenau · Santa Catarina · Desde 1997</p>
           <h1 className="text-[2.6rem] font-semibold leading-[1.02] text-foreground sm:text-6xl lg:text-[5.25rem]">
