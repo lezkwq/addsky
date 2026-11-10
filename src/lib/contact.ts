@@ -1,6 +1,5 @@
-// Contact data from the school's Google listing. WhatsApp availability on this number still needs confirmation.
-export const PHONE_DISPLAY = "(47) 99983-0398";
-export const PHONE_E164 = "5547999830398";
+export const PHONE_DISPLAY = "(47) 9779-5558";
+export const PHONE_E164 = "554797795558";
 export const INSTAGRAM_URL = "https://www.instagram.com/addsky.escola.pilotagem/";
 export const ADDRESS = "Rua Arthur Fischer, 153 — Itoupava Central, Blumenau — SC, 89068-024";
 export const MAPS_URL =

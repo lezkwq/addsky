@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { createIsomorphicFn } from "@tanstack/react-start";
+import { getRequestUrl } from "@tanstack/react-start/server";
 import { useEffect, useState } from "react";
 import { ArrowRight, ArrowUpRight, Instagram, MapPin, Menu, Phone, Star, X } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -15,27 +17,42 @@ import {
 // Real hero photos supplied by the school — 16:9 desktop only, 9:16 mobile only. Used exclusively in the hero.
 import heroDesktop from "@/assets/hero-fleet-desktop.jpg";
 import heroMobile from "@/assets/hero-fleet-mobile.jpg";
-import logo from "@/assets/addsky-logo.png";
+import logo from "@/assets/addsky-logo-transparent.png";
 import pubbbGround from "@/assets/pubbb-ground.jpg";
 import pubbbFlight from "@/assets/pubbb-flight.jpg";
-import pubbbLanding from "@/assets/pubbb-landing.jpg";
-import luiz from "@/assets/luiz-probst.jpg";
+import luiz from "@/assets/luiz-probst-portrait.jpg";
 import hangar from "@/assets/hangar.jpg";
 import cockpit from "@/assets/cockpit-view.jpg";
+import wingAtSunset from "@/assets/wing-at-sunset.jpg";
+import cloudyRunway from "@/assets/pubbb-cloudy-runway.jpg";
+import hangarApron from "@/assets/pubbb-hangar-apron.jpg";
+import overHill from "@/assets/pubbb-over-hill.jpg";
+import pilotPassenger from "@/assets/pubbb-pilot-passenger.jpg";
+import finalApproach from "@/assets/cockpit-final-approach.jpg";
 
 const TITLE = "ADD SKY Escola de Pilotagem | Cursos de Pilotagem em Blumenau";
 const DESC =
   "Conheça a ADD SKY Escola de Pilotagem em Blumenau. Saiba mais sobre os cursos de formação, conheça nossa história e entre em contato.";
 
+const getSiteOrigin = createIsomorphicFn()
+  .server(() => getRequestUrl().origin)
+  .client(() => window.location.origin);
+
 export const Route = createFileRoute("/")({
-  head: () => ({
+  loader: () => new URL("/og-image.png", getSiteOrigin()).href,
+  head: ({ loaderData: ogImage }) => ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: ogImage },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Logotipo da ADD SKY Escola de Pilotagem" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: ogImage },
     ],
     scripts: [
       {
@@ -94,7 +111,7 @@ function Header() {
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-5 py-3 md:px-10">
         <a href="#inicio" className="shrink-0" aria-label="ADD SKY Escola de Pilotagem — início">
-          <img src={logo} alt="ADD SKY Escola de Pilotagem" className="h-14 w-24 object-cover mix-blend-multiply" width={1080} height={1080} />
+          <img src={logo} alt="ADD SKY Escola de Pilotagem" className="h-14 w-24 object-contain" width={432} height={288} />
         </a>
         <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
           {NAV.map((n) => (
@@ -148,7 +165,7 @@ function Hero() {
       </picture>
       <div className="mx-auto flex w-full max-w-7xl flex-col px-5 pb-24 pt-32 md:justify-center md:px-10 md:pb-24">
         <div className="max-w-xl rise">
-          <p className="eyebrow mb-6">Blumenau · Santa Catarina · Desde 1997</p>
+          <p className="eyebrow mb-6 max-md:w-fit max-md:rounded-full max-md:bg-background max-md:px-3 max-md:py-1.5 max-md:tracking-[0.1em] max-md:shadow-sm">Blumenau · Santa Catarina · Desde 1997</p>
           <h1 className="text-photo text-[2.6rem] font-semibold leading-[1.02] text-white sm:text-6xl lg:text-[5.25rem]">
             Seu sonho de pilotar <span className="text-white">começa aqui.</span>
           </h1>
@@ -260,7 +277,7 @@ function Experience() {
       <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-12 md:gap-5">
         <img src={cockpit} alt="Vista da janela da cabine sobre a cidade e nuvens, com a asa e o montante visíveis" loading="lazy" width={1463} height={1075} className="col-span-2 aspect-[4/3] w-full rounded-2xl object-cover md:col-span-8 md:row-span-2 md:aspect-auto md:h-full" />
         <img src={pubbbGround} alt="Aeronave PU-BBB vermelha, branca e amarela estacionada sob céu azul" loading="lazy" width={1138} height={1382} className="aspect-[4/5] w-full rounded-2xl object-cover md:col-span-4" />
-        <img src={pubbbLanding} alt="Aeronave vermelha e branca próxima ao solo durante pouso" loading="lazy" width={1639} height={960} className="aspect-[4/5] w-full rounded-2xl object-cover md:col-span-4 md:aspect-[16/10]" />
+        <img src={wingAtSunset} alt="Vista da asa pela cabine ao pôr do sol" loading="lazy" width={900} height={1600} className="aspect-[4/5] w-full rounded-2xl object-cover md:col-span-4 md:aspect-[16/10]" />
       </div>
     </section>
   );
@@ -280,7 +297,7 @@ function History() {
             Com raízes na aviação desde 1997, a ADD SKY carrega uma trajetória de dedicação ao ensino e à formação de novos pilotos.
           </p>
           <div className="mt-12 flex items-center gap-6">
-            <img src={logo} alt="Logotipo ADD SKY Escola de Pilotagem, desde 1997" loading="lazy" width={1080} height={1080} className="h-36 w-36 rounded-xl bg-background object-contain p-2" />
+            <img src={logo} alt="Logotipo ADD SKY Escola de Pilotagem, desde 1997" loading="lazy" width={432} height={288} className="h-36 w-36 object-contain p-2" />
             <div>
               <p className="font-display text-5xl font-semibold text-accent">Desde 1997</p>
               <p className="mt-1 text-sm text-muted-foreground">Blumenau, Santa Catarina</p>
@@ -296,7 +313,7 @@ function History() {
 function Founder() {
   return (
     <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-24 md:grid-cols-12 md:px-10 md:py-36">
-      <img src={luiz} alt="Comandante Luiz Probst de braços cruzados diante da aeronave PU-BBB" loading="lazy" width={1254} height={1254} className="aspect-square w-full rounded-2xl object-cover md:col-span-6" />
+      <img src={luiz} alt="Comandante Luiz Probst apoiado na aeronave PU-BBB" loading="lazy" width={1066} height={1600} className="aspect-square w-full rounded-2xl object-cover object-[center_35%] md:col-span-6" />
       <div className="md:col-span-5 md:col-start-8">
         <p className="eyebrow">Conheça quem está por trás da ADD SKY</p>
         <h2 className="mt-5 text-4xl font-semibold leading-[1.05] md:text-5xl">Comandante Luiz Probst</h2>
@@ -332,10 +349,10 @@ function Fleet() {
         </div>
         <div className="mt-14 grid gap-4 md:grid-cols-3">
           {[
-            { src: pubbbLanding, alt: "PU-BBB em aproximação para pouso", w: 1639, h: 960, cls: "md:col-span-2 aspect-[16/10]" },
-            { src: pubbbGround, alt: "PU-BBB no pátio", w: 1138, h: 1382, cls: "aspect-[4/5] md:aspect-auto md:h-full" },
-            { src: hangar, alt: "Hangar e aeronaves no aeródromo", w: 1108, h: 1419, cls: "aspect-[4/5]" },
-            { src: pubbbFlight, alt: "PU-BBB fotografada em voo", w: 1470, h: 1070, cls: "md:col-span-2 aspect-[16/10] md:aspect-auto md:h-full" },
+            { src: hangarApron, alt: "PU-BBB no pátio com o hangar ao fundo", w: 1600, h: 900, cls: "md:col-span-2 aspect-[16/10]" },
+            { src: cloudyRunway, alt: "PU-BBB na pista sob nuvens carregadas", w: 900, h: 1600, cls: "aspect-[4/5] md:h-full" },
+            { src: overHill, alt: "Aeronave sobrevoando um morro", w: 900, h: 1600, cls: "aspect-[4/5] object-[center_65%]" },
+            { src: pilotPassenger, alt: "Piloto e passageiro na cabine da PU-BBB", w: 1066, h: 1600, cls: "md:col-span-2 aspect-[16/10] object-[center_57%] md:h-full" },
           ].map((p) => (
             <img key={p.alt} src={p.src} alt={p.alt} loading="lazy" width={p.w} height={p.h} className={`w-full rounded-2xl object-cover ${p.cls}`} />
           ))}
@@ -416,7 +433,7 @@ function Faq() {
 function FinalCta() {
   return (
     <section id="contato" className="relative isolate overflow-hidden">
-      <img src={cockpit} alt="" loading="lazy" width={1463} height={1075} className="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <img src={finalApproach} alt="" loading="lazy" width={900} height={1600} className="absolute inset-0 -z-10 h-full w-full object-cover" />
       <div aria-hidden className="absolute inset-0 -z-10" style={{ background: "var(--final-veil)" }} />
       <div className="mx-auto max-w-7xl px-5 py-28 text-ink-foreground md:px-10 md:py-44">
         <h2 className="max-w-2xl text-4xl font-semibold leading-[1.02] md:text-7xl">Seu próximo passo pode ser nos céus.</h2>
@@ -436,7 +453,7 @@ function Footer() {
     <footer className="bg-ink text-ink-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-12 md:px-10">
         <div className="md:col-span-5">
-          <img src={logo} alt="ADD SKY Escola de Pilotagem" loading="lazy" width={1080} height={1080} className="h-28 w-28 rounded-xl bg-background object-contain p-1" />
+          <img src={logo} alt="ADD SKY Escola de Pilotagem" loading="lazy" width={432} height={288} className="h-28 w-28 object-contain p-1 invert" />
           <p className="mt-6 font-display text-lg font-semibold">ADD SKY Escola de Pilotagem</p>
         </div>
         <ul className="space-y-3 text-sm text-ink-foreground/75 md:col-span-4">

@@ -83,7 +83,7 @@
     oklch(1 0 0 / 0) 76%,
     oklch(1 0 0 / 0.72) 100%
   );
-  --final-veil: linear-gradient(90deg, oklch(0.2 0.03 255 / 0.82) 0%, oklch(0.2 0.03 255 / 0.25) 70%);
+  --final-veil: linear-gradient(90deg, oklch(0.2 0.03 255 / 0.86) 0%, oklch(0.2 0.03 255 / 0.68) 65%, oklch(0.2 0.03 255 / 0.45) 100%);
   --shadow-soft: 0 24px 60px -30px oklch(0.36 0.09 255 / 0.35);
 }
 
