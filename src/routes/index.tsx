@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { createIsomorphicFn } from "@tanstack/react-start";
 import { getRequestUrl } from "@tanstack/react-start/server";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ArrowRight, ArrowUpRight, Instagram, MapPin, Menu, Phone, Star, X } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
@@ -28,7 +28,6 @@ import cloudyRunway from "@/assets/pubbb-cloudy-runway.jpg";
 import hangarApron from "@/assets/pubbb-hangar-apron.jpg";
 import overHill from "@/assets/pubbb-over-hill.jpg";
 import pilotPassenger from "@/assets/pubbb-pilot-passenger.jpg";
-import finalApproach from "@/assets/cockpit-final-approach.jpg";
 
 const TITLE = "ADD SKY Escola de Pilotagem | Cursos de Pilotagem em Blumenau";
 const DESC =
@@ -94,21 +93,9 @@ const btnGhost =
   "inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-foreground/20 px-6 text-sm font-semibold text-foreground transition hover:border-foreground hover:bg-background/60";
 
 function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  useEffect(() => {
-    const on = () => setScrolled(window.scrollY > 40);
-    on();
-    window.addEventListener("scroll", on, { passive: true });
-    return () => window.removeEventListener("scroll", on);
-  }, []);
-  const solid = scrolled || open;
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
-        solid ? "border-b bg-background/95 backdrop-blur" : "bg-transparent"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-40 border-b bg-background/95 backdrop-blur">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-5 py-3 md:px-10">
         <a href="#inicio" className="shrink-0" aria-label="ADD SKY Escola de Pilotagem — início">
           <img src={logo} alt="ADD SKY Escola de Pilotagem" className="h-14 w-24 object-contain" width={432} height={288} />
@@ -433,7 +420,7 @@ function Faq() {
 function FinalCta() {
   return (
     <section id="contato" className="relative isolate overflow-hidden">
-      <img src={finalApproach} alt="" loading="lazy" width={900} height={1600} className="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <img src={cockpit} alt="" loading="lazy" width={1463} height={1075} className="absolute inset-0 -z-10 h-full w-full object-cover" />
       <div aria-hidden className="absolute inset-0 -z-10" style={{ background: "var(--final-veil)" }} />
       <div className="mx-auto max-w-7xl px-5 py-28 text-ink-foreground md:px-10 md:py-44">
         <h2 className="max-w-2xl text-4xl font-semibold leading-[1.02] md:text-7xl">Seu próximo passo pode ser nos céus.</h2>
