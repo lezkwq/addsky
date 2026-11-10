@@ -135,17 +135,16 @@ function Header() {
 
   const lightContent = overPhoto && !open;
   const transparent = atTop && !open;
-  const mobileControlBackground = lightContent && !transparent ? "max-md:bg-background/95" : "";
   const barStyle = transparent
     ? "border-transparent bg-transparent text-white"
     : lightContent
-      ? "border-white/20 bg-ink/75 text-white backdrop-blur"
+      ? "border-transparent bg-transparent text-white md:border-white/20 md:bg-ink/75 md:backdrop-blur"
       : "bg-background/95 text-foreground backdrop-blur";
   return (
     <header className={`fixed inset-x-0 top-0 z-40 border-b ${barStyle}`}>
       <div ref={bar} className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-5 py-3 md:px-10">
         <a href="#inicio" className="shrink-0" aria-label="ADD SKY Escola de Pilotagem — início">
-          <img src={logo} alt="ADD SKY Escola de Pilotagem" className={`h-14 w-24 object-contain max-md:rounded-lg ${mobileControlBackground}${lightContent ? " md:brightness-0 md:invert" : ""}`} width={432} height={288} />
+          <img src={logo} alt="ADD SKY Escola de Pilotagem" className={`h-14 w-24 object-contain${lightContent ? " md:brightness-0 md:invert" : ""}`} width={432} height={288} />
         </a>
         <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
           {NAV.map((n) => (
@@ -164,7 +163,7 @@ function Header() {
           </a>
           <button
             type="button"
-            className={`grid h-11 w-11 place-items-center rounded-full max-md:text-foreground lg:hidden ${mobileControlBackground}`}
+            className="grid h-11 w-11 place-items-center rounded-full max-md:text-foreground lg:hidden"
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
