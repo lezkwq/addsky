@@ -200,41 +200,43 @@ function Hero() {
         <source media="(min-width: 768px)" srcSet={heroDesktop} />
         <img src={heroMobile} alt="Aeronave de instrução da ADD SKY em voo rasante" className="h-full w-full object-cover object-center" width={945} height={1677} fetchPriority="high" />
       </picture>
-      <div className="mx-auto flex w-full max-w-7xl flex-col px-5 pb-20 pt-32 md:justify-center md:px-10 md:pb-24">
+      <div className="mx-auto flex w-full max-w-7xl flex-col px-5 pb-20 pt-32 md:justify-center md:px-10 md:pb-24 lg:pb-8 lg:pt-24">
         <div className="max-w-xl rise">
-          <p className="eyebrow mb-6 max-md:w-fit max-md:rounded-full max-md:bg-background max-md:px-3 max-md:py-1.5 max-md:tracking-[0.1em] max-md:shadow-sm">Blumenau · Santa Catarina · Desde 1997</p>
-          <h1 className="text-photo text-[2.6rem] font-semibold leading-[1.02] text-white sm:text-6xl lg:text-[5.25rem]">
+          <p className="eyebrow mb-6 w-fit rounded-full bg-background px-3 py-1.5 shadow-sm max-md:tracking-[0.1em]">Blumenau · Santa Catarina · Desde 1997</p>
+          <h1 className="text-photo text-[2.6rem] font-semibold leading-[1.02] text-white sm:text-6xl lg:text-[clamp(3.25rem,10svh,5.25rem)]">
             Seu sonho de pilotar <span className="text-white">começa aqui.</span>
           </h1>
           <p className="text-photo mt-6 max-w-md text-base font-medium leading-relaxed text-white md:text-lg">
             Conheça a ADD SKY Escola de Pilotagem, em Blumenau, e descubra como dar os primeiros passos na aviação.
           </p>
         </div>
-        <div className="mt-auto flex flex-col gap-3 pt-10 sm:flex-row md:mt-10 rise" style={{ animationDelay: "150ms" }}>
-          <a href="#cursos" className={btnPrimary}>
-            Quero conhecer os cursos <ArrowRight className="h-4 w-4" />
-          </a>
-          <a href="#historia" className={`${btnGhost} bg-background/50 backdrop-blur-sm`}>
-            Conheça a ADD SKY
-          </a>
-        </div>
-        <div className="mt-4 flex w-full max-w-md items-stretch divide-x divide-white/25 self-start rounded-2xl border border-white/25 bg-ink/80 py-3 text-white backdrop-blur-sm sm:mt-5">
-          <dl className="grid flex-2 grid-cols-2 divide-x divide-white/25">
-            {FLIGHT_STATS.map(({ label, value }) => (
-              <div key={label} className="flex flex-col-reverse items-center justify-center gap-1 px-1 text-center">
-                <dt className="text-xs text-white/90">{label}</dt>
-                <dd className="font-display text-lg font-semibold leading-none sm:text-xl">{value}</dd>
-              </div>
-            ))}
-          </dl>
-          <a href="#avaliacoes" className="flex flex-1 flex-col items-center justify-center gap-1 px-1 text-center text-xs text-white/90 hover:underline">
-            <span className="flex h-[1.125rem] items-center gap-0.5 text-signal sm:h-5" role="img" aria-label="5 de 5 estrelas no Google">
-              {Array.from({ length: 5 }, (_, i) => (
-                <Star key={i} aria-hidden="true" className="size-3 fill-current sm:size-3.5" />
+        <div className="mt-auto md:mt-10 lg:mt-8 lg:flex lg:items-center lg:gap-4">
+          <div className="rise flex flex-col gap-3 pt-10 sm:flex-row lg:shrink-0 lg:pt-0" style={{ animationDelay: "150ms" }}>
+            <a href="#cursos" className={btnPrimary}>
+              Quero conhecer os cursos <ArrowRight className="h-4 w-4" />
+            </a>
+            <a href="#historia" className={`${btnGhost} bg-background/50 backdrop-blur-sm`}>
+              Conheça a ADD SKY
+            </a>
+          </div>
+          <div className="mt-4 flex w-full max-w-md items-stretch divide-x divide-white/25 rounded-2xl border border-white/25 bg-ink/80 py-3 text-white backdrop-blur-sm sm:mt-5 lg:mt-0 lg:w-96">
+            <dl className="grid flex-2 grid-cols-2 divide-x divide-white/25">
+              {FLIGHT_STATS.map(({ label, value }) => (
+                <div key={label} className="flex flex-col-reverse items-center justify-center gap-1 px-1 text-center">
+                  <dt className="text-xs text-white/90">{label}</dt>
+                  <dd className="font-display text-lg font-semibold leading-none sm:text-xl">{value}</dd>
+                </div>
               ))}
-            </span>
-            {GOOGLE_REVIEW_COUNT} avaliações
-          </a>
+            </dl>
+            <a href="#avaliacoes" className="flex flex-1 flex-col items-center justify-center gap-1 px-1 text-center text-xs text-white/90 hover:underline">
+              <span className="flex h-[1.125rem] items-center gap-0.5 text-signal sm:h-5" role="img" aria-label="5 de 5 estrelas no Google">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <Star key={i} aria-hidden="true" className="size-3 fill-current sm:size-3.5" />
+                ))}
+              </span>
+              {GOOGLE_REVIEW_COUNT} avaliações
+            </a>
+          </div>
         </div>
       </div>
     </section>
