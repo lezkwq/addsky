@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { createIsomorphicFn } from "@tanstack/react-start";
 import { getRequestUrl } from "@tanstack/react-start/server";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowUpRight, Instagram, MapPin, Menu, Phone, Star, X } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
@@ -93,22 +93,56 @@ const btnGhost =
   "inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-foreground/20 px-6 text-sm font-semibold text-foreground transition hover:border-foreground hover:bg-background/60";
 
 function Header() {
+  const bar = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
+  const [overPhoto, setOverPhoto] = useState(true);
+
+  useEffect(() => {
+    const photos = document.querySelectorAll("[data-header-photo]");
+    const desktop = window.matchMedia("(min-width: 64rem)");
+    const update = () => {
+      const barHeight = bar.current?.offsetHeight ?? 0;
+      setOverPhoto(Array.from(photos).some((section) => {
+        const { top, bottom } = section.getBoundingClientRect();
+        return top < barHeight && bottom > 0;
+      }));
+    };
+    const closeMenuOnDesktop = () => {
+      if (desktop.matches) setOpen(false);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    desktop.addEventListener("change", closeMenuOnDesktop);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+      desktop.removeEventListener("change", closeMenuOnDesktop);
+    };
+  }, []);
+
+  const lightContent = overPhoto && !open;
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b bg-background/95 backdrop-blur">
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-5 py-3 md:px-10">
+    <header className={`fixed inset-x-0 top-0 z-40 border-b backdrop-blur ${
+      lightContent ? "border-white/20 bg-ink/75 text-white" : "bg-background/95 text-foreground"
+    }`}>
+      <div ref={bar} className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-5 py-3 md:px-10">
         <a href="#inicio" className="shrink-0" aria-label="ADD SKY Escola de Pilotagem — início">
-          <img src={logo} alt="ADD SKY Escola de Pilotagem" className="h-14 w-24 object-contain" width={432} height={288} />
+          <img src={logo} alt="ADD SKY Escola de Pilotagem" className={`h-14 w-24 object-contain${lightContent ? " brightness-0 invert" : ""}`} width={432} height={288} />
         </a>
         <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
           {NAV.map((n) => (
-            <a key={n.href} href={n.href} className="text-sm font-medium text-foreground/80 transition hover:text-foreground">
+            <a key={n.href} href={n.href} className={`text-sm font-medium transition ${
+              lightContent ? "hover:underline" : "text-foreground/80 hover:text-foreground"
+            }`}>
               {n.label}
             </a>
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <a href={whatsappUrl(MESSAGES.general)} target="_blank" rel="noopener noreferrer" className="hidden min-h-10 items-center gap-2 rounded-full border border-foreground/15 px-4 text-sm font-semibold transition hover:bg-ink hover:text-ink-foreground sm:inline-flex">
+          <a href={whatsappUrl(MESSAGES.general)} target="_blank" rel="noopener noreferrer" className={`hidden min-h-10 items-center gap-2 rounded-full border px-4 text-sm font-semibold transition sm:inline-flex ${
+            lightContent ? "border-white/60 hover:bg-white hover:text-ink" : "border-foreground/15 hover:bg-ink hover:text-ink-foreground"
+          }`}>
             Fale conosco
           </a>
           <button
@@ -145,7 +179,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="inicio" className="relative isolate flex min-h-[100svh] overflow-hidden">
+    <section id="inicio" data-header-photo className="relative isolate flex min-h-[100svh] overflow-hidden">
       <picture className="absolute inset-0 -z-10">
         <source media="(min-width: 768px)" srcSet={heroDesktop} />
         <img src={heroMobile} alt="Aeronave de instrução da ADD SKY em voo rasante" className="h-full w-full object-cover object-center" width={945} height={1677} fetchPriority="high" />
@@ -419,7 +453,7 @@ function Faq() {
 
 function FinalCta() {
   return (
-    <section id="contato" className="relative isolate overflow-hidden">
+    <section id="contato" data-header-photo className="relative isolate overflow-hidden">
       <img src={cockpit} alt="" loading="lazy" width={1463} height={1075} className="absolute inset-0 -z-10 h-full w-full object-cover" />
       <div aria-hidden className="absolute inset-0 -z-10" style={{ background: "var(--final-veil)" }} />
       <div className="mx-auto max-w-7xl px-5 py-28 text-ink-foreground md:px-10 md:py-44">
