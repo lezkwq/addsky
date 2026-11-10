@@ -96,11 +96,13 @@ function Header() {
   const bar = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
   const [overPhoto, setOverPhoto] = useState(true);
+  const [atTop, setAtTop] = useState(true);
 
   useEffect(() => {
     const photos = document.querySelectorAll("[data-header-photo]");
     const desktop = window.matchMedia("(min-width: 64rem)");
     const update = () => {
+      setAtTop(window.scrollY <= 0);
       const barHeight = bar.current?.offsetHeight ?? 0;
       setOverPhoto(Array.from(photos).some((section) => {
         const { top, bottom } = section.getBoundingClientRect();
@@ -122,10 +124,14 @@ function Header() {
   }, []);
 
   const lightContent = overPhoto && !open;
+  const transparent = atTop && !open;
+  const barStyle = transparent
+    ? "border-transparent bg-transparent text-white"
+    : lightContent
+      ? "border-white/20 bg-ink/75 text-white backdrop-blur"
+      : "bg-background/95 text-foreground backdrop-blur";
   return (
-    <header className={`fixed inset-x-0 top-0 z-40 border-b backdrop-blur ${
-      lightContent ? "border-white/20 bg-ink/75 text-white" : "bg-background/95 text-foreground"
-    }`}>
+    <header className={`fixed inset-x-0 top-0 z-40 border-b ${barStyle}`}>
       <div ref={bar} className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-5 py-3 md:px-10">
         <a href="#inicio" className="shrink-0" aria-label="ADD SKY Escola de Pilotagem — início">
           <img src={logo} alt="ADD SKY Escola de Pilotagem" className={`h-14 w-24 object-contain${lightContent ? " brightness-0 invert" : ""}`} width={432} height={288} />
