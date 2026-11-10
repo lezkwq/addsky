@@ -4,6 +4,7 @@ import { getRequestUrl } from "@tanstack/react-start/server";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowUpRight, Instagram, MapPin, Menu, Phone, Star, X } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   ADDRESS,
   INSTAGRAM_URL,
@@ -28,6 +29,9 @@ import cloudyRunway from "@/assets/pubbb-cloudy-runway.jpg";
 import hangarApron from "@/assets/pubbb-hangar-apron.jpg";
 import overHill from "@/assets/pubbb-over-hill.jpg";
 import pilotPassenger from "@/assets/pubbb-pilot-passenger.jpg";
+import sergioAvatar from "@/assets/review-sergio-silva.webp";
+import homeroAvatar from "@/assets/review-homero-pedrollo.webp";
+import ederAvatar from "@/assets/review-eder-barni.webp";
 
 const TITLE = "ADD SKY Escola de Pilotagem | Cursos de Pilotagem em Blumenau";
 const DESC =
@@ -91,6 +95,12 @@ const btnPrimary =
   "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-ink px-6 text-sm font-semibold text-ink-foreground transition hover:bg-accent";
 const btnGhost =
   "inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-foreground/20 px-6 text-sm font-semibold text-foreground transition hover:border-foreground hover:bg-background/60";
+
+const FLIGHT_STATS = [
+  { label: "Horas de voo", value: "+18 mil" },
+  { label: "Alunos formados", value: "+1.000" },
+];
+const GOOGLE_REVIEW_COUNT = 15;
 
 function Header() {
   const bar = useRef<HTMLDivElement>(null);
@@ -190,7 +200,7 @@ function Hero() {
         <source media="(min-width: 768px)" srcSet={heroDesktop} />
         <img src={heroMobile} alt="Aeronave de instrução da ADD SKY em voo rasante" className="h-full w-full object-cover object-center" width={945} height={1677} fetchPriority="high" />
       </picture>
-      <div className="mx-auto flex w-full max-w-7xl flex-col px-5 pb-24 pt-32 md:justify-center md:px-10 md:pb-24">
+      <div className="mx-auto flex w-full max-w-7xl flex-col px-5 pb-20 pt-32 md:justify-center md:px-10 md:pb-24">
         <div className="max-w-xl rise">
           <p className="eyebrow mb-6 max-md:w-fit max-md:rounded-full max-md:bg-background max-md:px-3 max-md:py-1.5 max-md:tracking-[0.1em] max-md:shadow-sm">Blumenau · Santa Catarina · Desde 1997</p>
           <h1 className="text-photo text-[2.6rem] font-semibold leading-[1.02] text-white sm:text-6xl lg:text-[5.25rem]">
@@ -206,6 +216,24 @@ function Hero() {
           </a>
           <a href="#historia" className={`${btnGhost} bg-background/50 backdrop-blur-sm`}>
             Conheça a ADD SKY
+          </a>
+        </div>
+        <div className="mt-4 flex w-full max-w-md items-stretch divide-x divide-white/25 self-start rounded-2xl border border-white/25 bg-ink/80 py-3 text-white backdrop-blur-sm sm:mt-5">
+          <dl className="grid flex-2 grid-cols-2 divide-x divide-white/25">
+            {FLIGHT_STATS.map(({ label, value }) => (
+              <div key={label} className="flex flex-col-reverse items-center justify-center gap-1 px-1 text-center">
+                <dt className="text-xs text-white/90">{label}</dt>
+                <dd className="font-display text-lg font-semibold leading-none sm:text-xl">{value}</dd>
+              </div>
+            ))}
+          </dl>
+          <a href="#avaliacoes" className="flex flex-1 flex-col items-center justify-center gap-1 px-1 text-center text-xs text-white/90 hover:underline">
+            <span className="flex h-[1.125rem] items-center gap-0.5 text-signal sm:h-5" role="img" aria-label="5 de 5 estrelas no Google">
+              {Array.from({ length: 5 }, (_, i) => (
+                <Star key={i} aria-hidden="true" className="size-3 fill-current sm:size-3.5" />
+              ))}
+            </span>
+            {GOOGLE_REVIEW_COUNT} avaliações
           </a>
         </div>
       </div>
@@ -263,7 +291,7 @@ function Courses() {
             <h2 className="mt-5 text-4xl font-semibold leading-[1.05] md:text-6xl">Encontre seu caminho na aviação.</h2>
           </div>
           <p className="text-lg leading-relaxed text-ink-foreground/70 md:col-span-5">
-            Conheça as opções de formação divulgadas pela ADD SKY e converse com a escola para descobrir por onde começar.
+            Conheça as opções de formação da ADD SKY e fale com a nossa equipe para descobrir por onde começar.
           </p>
         </div>
         <ol className="mt-16 border-t border-ink-foreground/15">
@@ -349,16 +377,13 @@ function Founder() {
           A paixão de Luiz Probst pela aviação começou cedo, inspirada pelo pai, que também era piloto. Essa trajetória se transformou em uma vida dedicada ao voo, à instrução e à formação de novos pilotos.
         </p>
         <dl className="mt-10 grid grid-cols-2 gap-6 border-t pt-8">
-          <div>
-            <dt className="text-sm text-muted-foreground">Horas de voo</dt>
-            <dd className="font-display text-3xl font-semibold">+18 mil</dd>
-          </div>
-          <div>
-            <dt className="text-sm text-muted-foreground">Alunos formados</dt>
-            <dd className="font-display text-3xl font-semibold">+1.000</dd>
-          </div>
+          {FLIGHT_STATS.map(({ label, value }) => (
+            <div key={label}>
+              <dt className="text-sm text-muted-foreground">{label}</dt>
+              <dd className="font-display text-3xl font-semibold">{value}</dd>
+            </div>
+          ))}
         </dl>
-        <p className="mt-4 text-xs text-muted-foreground">Números divulgados pela própria escola, sujeitos à confirmação.</p>
       </div>
     </section>
   );
@@ -389,10 +414,22 @@ function Fleet() {
   );
 }
 
-const REVIEWS = [
-  { name: "Sergio Silva", text: "Relata experiência positiva no curso CPA e destaca o conhecimento e a paciência de Luiz como instrutor." },
-  { name: "Jean Deglmann", text: "Recomenda a escola para interessados em pilotagem e destaca o trabalho do instrutor." },
-  { name: "Jonathan Levy Jacinto Schulz", text: "Relata conhecer o trabalho da escola há anos e recomenda a experiência de voar." },
+const REVIEWS: { name: string; text: string; avatar?: string }[] = [
+  {
+    name: "Sergio Silva",
+    avatar: sergioAvatar,
+    text: "É uma escola excelente. Fiz meu curso de CPA com muita tranquilidade. O Luiz é um instrutor de alto gabarito. Sabe muito e tem paciência para respeitar as limitações dos alunos. É um instrutor que se tornou um amigo. Recomendo muito esta escola!",
+  },
+  {
+    name: "Homero Luiggi Pedrollo",
+    avatar: homeroAvatar,
+    text: "Para mim, é a melhor escola de aviação. O instrutor Luiz é muito experiente e cauteloso. O ambiente é tranquilo, de camaradagem e, acima de tudo, de segurança. Estou muito satisfeito com minhas aulas de voo.",
+  },
+  {
+    name: "Eder Barni",
+    avatar: ederAvatar,
+    text: "Muita gente sonha em pilotar um avião e acha que é impossível. Mas não é! A ADD SKY é uma escola fantástica. O Luiz domina uma aeronave como ninguém e transmite esse conhecimento com muita dedicação e sabedoria. Tem esse sonho? Então só vai! O resto é com ele. Escola nota 1000!",
+  },
 ];
 
 function Reviews() {
@@ -410,7 +447,7 @@ function Reviews() {
                   <Star key={i} className="h-5 w-5 fill-current" />
                 ))}
               </div>
-              <p className="mt-1 text-sm text-muted-foreground">15 avaliações no Google</p>
+              <p className="mt-1 text-sm text-muted-foreground">{GOOGLE_REVIEW_COUNT} avaliações no Google</p>
             </div>
           </div>
           <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`${btnGhost} mt-10`}>
@@ -420,20 +457,27 @@ function Reviews() {
         <ul className="divide-y border-y md:col-span-6 md:col-start-7">
           {REVIEWS.map((r) => (
             <li key={r.name} className="py-8">
-              <p className="text-lg leading-relaxed">{r.text}</p>
-              <p className="mt-4 text-sm font-semibold">{r.name}</p>
+              <blockquote className="text-lg leading-relaxed">{r.text}</blockquote>
+              <div className="mt-4 flex items-center gap-3">
+                <Avatar aria-hidden="true">
+                  <AvatarImage src={r.avatar} alt="" className="object-cover" />
+                  <AvatarFallback className="bg-secondary text-sm font-semibold text-accent">
+                    {r.name.split(" ").slice(0, 2).map((name) => name[0]).join("")}
+                  </AvatarFallback>
+                </Avatar>
+                <p className="text-sm font-semibold">{r.name}</p>
+              </div>
             </li>
           ))}
         </ul>
       </div>
-      <p className="mt-6 text-xs text-muted-foreground md:text-right">Resumos de avaliações públicas no Google, não transcrições literais.</p>
     </section>
   );
 }
 
 const FAQ = [
   { q: "Como faço para começar a aprender a pilotar?", a: "O primeiro passo é conversar com a ADD SKY. A equipe orienta sobre a formação mais adequada ao seu objetivo e explica como iniciar." },
-  { q: "Quais cursos a ADD SKY oferece?", a: "A escola divulga o Curso de Piloto Aerodesportivo (CPA) e o Curso de Instrutor de Voo Aerodesportivo (INVCPA)." },
+  { q: "Quais cursos a ADD SKY oferece?", a: "Oferecemos o Curso de Piloto Aerodesportivo (CPA) e o Curso de Instrutor de Voo Aerodesportivo (INVCPA)." },
   { q: "Como posso saber os requisitos para cada formação?", a: "Requisitos, duração e valores devem ser consultados diretamente com a escola, que informa as condições atualizadas de cada curso." },
   { q: "Onde fica localizada a escola?", a: `A ADD SKY fica na ${ADDRESS}.` },
   { q: "Como posso falar com a equipe?", a: `Pelo telefone ${PHONE_DISPLAY}, pelo botão de contato neste site ou pelo Instagram @addsky.escola.pilotagem.` },
