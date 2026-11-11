@@ -348,11 +348,14 @@ function History() {
       </p>
       <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-24 md:grid-cols-12 md:px-10 md:py-36">
         <div className="md:col-span-6">
-          <p className="eyebrow">Nossa história</p>
+          <p className="eyebrow">NOSSA HISTÓRIA</p>
           <h2 className="mt-5 text-4xl font-semibold leading-[1.05] md:text-6xl">Uma história construída pela paixão de voar.</h2>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-            Com raízes na aviação desde 1997, a ADD SKY carrega uma trajetória de dedicação ao ensino e à formação de novos pilotos.
-          </p>
+          <div className="mt-6 max-w-lg space-y-4 text-lg leading-relaxed text-muted-foreground">
+            <p>Com raízes na aviação desde 1997, a ADD SKY Escola de Pilotagem construiu uma trajetória marcada pela dedicação ao ensino, à segurança e à formação de novos pilotos.</p>
+            <p>Somos uma escola CIAC (Centro de Instrução de Aviação Civil), certificada pela ANAC, comprometida com a qualidade e a excelência na formação aeronáutica.</p>
+            <p>Há 30 anos, caminhamos lado a lado com a ABUL (Associação Brasileira de Ultraleves), nossa parceira nessa jornada de incentivo à aviação aerodesportiva, compartilhando conhecimento, experiências e a paixão por voar.</p>
+            <p>Mais do que ensinar a voar, nossa história é construída por pessoas, conquistas e pelo compromisso de manter viva a paixão pela aviação.</p>
+          </div>
           <div className="mt-12 flex items-center gap-6">
             <img src={logo} alt="Logotipo ADD SKY Escola de Pilotagem, desde 1997" loading="lazy" width={432} height={288} className="h-36 w-36 object-contain p-2" />
             <div>
@@ -387,6 +390,21 @@ function Founder() {
           ))}
         </dl>
       </div>
+      <div className="grid items-center gap-8 border-t pt-12 md:col-span-12 md:grid-cols-12 md:gap-12 md:pt-16">
+        <div aria-hidden="true" className="grid aspect-square w-full place-items-center rounded-2xl bg-secondary font-display text-5xl font-semibold text-accent md:col-span-5">
+          MS
+        </div>
+        <div className="md:col-span-7">
+          <h2 className="text-3xl font-semibold leading-tight md:text-4xl">MURIEL MANOEL DA SILVEIRA</h2>
+          <p className="mt-2 text-muted-foreground">Instrutor de Voo</p>
+          <div className="mt-6 space-y-4 text-lg leading-relaxed">
+            <p>É profissional da aviação atuando como instrutor de voo e como piloto na aviação executiva, com mais de 800h totais. Possui licença de Piloto de Avião e Piloto Aerodesportivo e habilitações MNTE, IFR e Instrutor de Voo de CPA (INVCPA). É Gestor de Segurança Operacional e possui diversos cursos na área de Safety.</p>
+            <p>Além de sua atuação na instrução aeronáutica e na aviação executiva, possui experiência como operador aerotático em órgão de segurança pública, atividade que exige elevado nível de preparo técnico, disciplina operacional, capacidade de tomada de decisão e comprometimento com a segurança.</p>
+            <p>Sua vivência em diferentes contextos operacionais da aviação contribui para uma formação que vai além dos conhecimentos básicos de pilotagem, proporcionando aos alunos uma visão abrangente sobre responsabilidade, consciência situacional, gerenciamento de riscos e segurança de voo.</p>
+            <p>Como instrutor, tem o compromisso de transmitir conhecimentos e experiências, contribuindo para a formação de pilotos tecnicamente preparados, disciplinados e conscientes da responsabilidade envolvida na atividade aeronáutica.</p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
@@ -400,6 +418,16 @@ function Fleet() {
           <p className="text-lg text-ink-foreground/70 md:col-span-5">
             Explore imagens das aeronaves, dos voos e do ambiente que fazem parte da rotina da escola.
           </p>
+        </div>
+        <div className="mt-12 rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-5 sm:p-8">
+          <h3 className="text-2xl font-semibold md:text-3xl">TECNAM ECHO P92 S</h3>
+          <div className="mt-5 max-w-3xl space-y-4 leading-relaxed text-ink-foreground/85">
+            <p>O <strong>Tecnam Echo P92 S</strong> é uma aeronave leve de dois lugares, projetada para oferecer simplicidade operacional, conforto e excelente desempenho nas atividades de instrução e treinamento de pilotos.</p>
+            <p>Com configuração de asa alta, cabine com ampla visibilidade e comandos de voo que proporcionam uma experiência de pilotagem intuitiva, o P92 S é uma excelente plataforma para o desenvolvimento das habilidades fundamentais da aviação.</p>
+            <p>Sua versatilidade e características de voo permitem ao aluno vivenciar diferentes etapas da formação aeronáutica, desde os primeiros contatos com os comandos da aeronave até o aperfeiçoamento das técnicas de pilotagem.</p>
+            <p>O Tecnam P92 S reúne praticidade, confiabilidade e características ideais para proporcionar uma formação de qualidade, contribuindo para uma experiência de aprendizado segura e eficiente.</p>
+            <p className="border-t border-ink-foreground/15 pt-4">A ADD SKY possui em sua frota e como principal aeronave de instrução o PU-BBB. Aeronave modelo ECHO P92S, ano 2001 e número de séria 527, equipada com motor ROTAX912 ULS de 100hp, com velocidade de cruzeiro de 100KT, peso máximo decolagem de 500kg e autonomia de 6h.</p>
+          </div>
         </div>
         <div className="mt-14 grid gap-4 md:grid-cols-3">
           {[
