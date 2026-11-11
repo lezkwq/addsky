@@ -426,15 +426,16 @@ function Fleet() {
             <p className="border-t border-ink-foreground/15 pt-4">A ADD SKY possui em sua frota e como principal aeronave de instrução o PU-BBB. Aeronave modelo ECHO P92S, ano 2001 e número de séria 527, equipada com motor ROTAX912 ULS de 100hp, com velocidade de cruzeiro de 100KT, peso máximo decolagem de 500kg e autonomia de 6h.</p>
           </div>
         </div>
-        <p className="mt-10 text-lg text-ink-foreground/70 md:col-span-full md:mt-5">
-          Explore imagens das aeronaves, dos voos e do ambiente que fazem parte da rotina da escola.
-        </p>
-        <div className="mt-5 grid gap-4 md:col-span-full md:mt-3 md:w-full md:max-w-4xl md:grid-cols-[2fr_1fr_1fr_2fr] md:gap-3">
+        <h3 className="mt-10 text-4xl font-semibold leading-[1.05] md:col-span-full md:mt-16 md:text-6xl">
+          Explore imagens das aeronaves
+          <span className="hidden md:block"> e da rotina da escola</span>
+        </h3>
+        <div className="mt-6 grid gap-4 md:col-span-full md:mt-8 md:grid-cols-[1.35fr_0.85fr_0.85fr_1.35fr] md:items-start">
           {[
-            { src: hangarApron, alt: "PU-BBB no pátio com o hangar ao fundo", w: 1600, h: 900, cls: "" },
-            { src: cloudyRunway, alt: "PU-BBB na pista sob nuvens carregadas", w: 900, h: 1600, cls: "md:aspect-[4/5]" },
-            { src: overHill, alt: "Aeronave sobrevoando um morro", w: 900, h: 1600, cls: "object-[center_65%] md:aspect-[4/5]" },
-            { src: pilotPassenger, alt: "Piloto e passageiro na cabine da PU-BBB", w: 1066, h: 1600, cls: "object-[center_57%]" },
+            { src: hangarApron, alt: "PU-BBB no pátio com o hangar ao fundo", w: 1600, h: 900, cls: "md:aspect-[4/3]" },
+            { src: cloudyRunway, alt: "PU-BBB na pista sob nuvens carregadas", w: 900, h: 1600, cls: "md:mt-12 md:aspect-[4/5]" },
+            { src: overHill, alt: "Aeronave sobrevoando um morro", w: 900, h: 1600, cls: "object-[center_65%] md:mt-4 md:aspect-[4/5]" },
+            { src: pilotPassenger, alt: "Piloto e passageiro na cabine da PU-BBB", w: 1066, h: 1600, cls: "object-[center_57%] md:mt-16 md:aspect-[4/3]" },
           ].map((p) => (
             <img key={p.alt} src={p.src} alt={p.alt} loading="lazy" width={p.w} height={p.h} className={`aspect-[16/10] w-full rounded-2xl object-cover ${p.cls}`} />
           ))}
