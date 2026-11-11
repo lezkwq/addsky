@@ -371,11 +371,13 @@ function History() {
 }
 
 function Founder() {
+  const teamIntro = "Conheça quem está por trás da ADD SKY";
   return (
     <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-24 md:grid-cols-12 md:px-10 md:py-36">
+      <p className="eyebrow -mb-6 md:hidden">{teamIntro}</p>
       <img src={luiz} alt="Comandante Luiz Probst apoiado na aeronave PU-BBB" loading="lazy" width={1066} height={1600} className="aspect-square w-full rounded-2xl object-cover object-[center_35%] md:col-span-6" />
       <div className="md:col-span-5 md:col-start-8">
-        <p className="eyebrow">Conheça quem está por trás da ADD SKY</p>
+        <p className="eyebrow hidden md:block">{teamIntro}</p>
         <h2 className="mt-5 text-4xl font-semibold leading-[1.05] md:text-5xl">Comandante Luiz Probst</h2>
         <p className="mt-2 text-muted-foreground">Fundador da ADD SKY Escola de Pilotagem</p>
         <p className="mt-8 text-lg leading-relaxed">
@@ -391,10 +393,10 @@ function Founder() {
         </dl>
       </div>
       <div className="grid items-center gap-8 border-t pt-12 md:col-span-12 md:grid-cols-12 md:gap-12 md:pt-16">
-        <div aria-hidden="true" className="grid aspect-square w-full place-items-center rounded-2xl bg-secondary font-display text-5xl font-semibold text-accent md:col-span-5">
+        <div aria-hidden="true" className="grid aspect-square w-full place-items-center rounded-2xl bg-secondary font-display text-5xl font-semibold text-accent md:col-span-6">
           MS
         </div>
-        <div className="md:col-span-7">
+        <div className="md:col-span-5 md:col-start-8">
           <h2 className="text-3xl font-semibold leading-tight md:text-4xl">MURIEL MANOEL DA SILVEIRA</h2>
           <p className="mt-2 text-muted-foreground">Instrutor de Voo</p>
           <div className="mt-6 space-y-4 text-lg leading-relaxed">
@@ -412,14 +414,9 @@ function Founder() {
 function Fleet() {
   return (
     <section className="bg-ink text-ink-foreground">
-      <div className="mx-auto max-w-7xl px-5 py-24 md:px-10 md:py-32">
-        <div className="grid gap-6 md:grid-cols-12 md:items-end">
-          <h2 className="text-4xl font-semibold leading-[1.05] md:col-span-7 md:text-6xl">Conheça de perto o universo da ADD SKY.</h2>
-          <p className="text-lg text-ink-foreground/70 md:col-span-5">
-            Explore imagens das aeronaves, dos voos e do ambiente que fazem parte da rotina da escola.
-          </p>
-        </div>
-        <div className="mt-12 rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-5 sm:p-8">
+      <div className="mx-auto max-w-7xl px-5 py-24 md:grid md:grid-cols-12 md:gap-x-6 md:px-10 md:py-32">
+        <h2 className="text-4xl font-semibold leading-[1.05] md:col-span-7 md:row-start-1 md:text-6xl">Conheça de perto o universo da ADD SKY.</h2>
+        <div className="mt-12 rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-5 sm:p-8 md:col-span-full">
           <h3 className="text-2xl font-semibold md:text-3xl">TECNAM ECHO P92 S</h3>
           <div className="mt-5 max-w-3xl space-y-4 leading-relaxed text-ink-foreground/85">
             <p>O <strong>Tecnam Echo P92 S</strong> é uma aeronave leve de dois lugares, projetada para oferecer simplicidade operacional, conforto e excelente desempenho nas atividades de instrução e treinamento de pilotos.</p>
@@ -429,7 +426,10 @@ function Fleet() {
             <p className="border-t border-ink-foreground/15 pt-4">A ADD SKY possui em sua frota e como principal aeronave de instrução o PU-BBB. Aeronave modelo ECHO P92S, ano 2001 e número de séria 527, equipada com motor ROTAX912 ULS de 100hp, com velocidade de cruzeiro de 100KT, peso máximo decolagem de 500kg e autonomia de 6h.</p>
           </div>
         </div>
-        <div className="mt-14 grid gap-4 md:grid-cols-3">
+        <p className="mt-10 text-lg text-ink-foreground/70 md:col-span-5 md:col-start-8 md:row-start-1 md:mt-0 md:self-end">
+          Explore imagens das aeronaves, dos voos e do ambiente que fazem parte da rotina da escola.
+        </p>
+        <div className="mt-5 grid gap-4 md:col-span-full md:mt-14 md:grid-cols-3">
           {[
             { src: hangarApron, alt: "PU-BBB no pátio com o hangar ao fundo", w: 1600, h: 900, cls: "md:col-span-2 aspect-[16/10]" },
             { src: cloudyRunway, alt: "PU-BBB na pista sob nuvens carregadas", w: 900, h: 1600, cls: "aspect-[4/5] md:h-full" },
