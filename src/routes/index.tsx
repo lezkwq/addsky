@@ -414,22 +414,22 @@ function Founder() {
 function Fleet() {
   return (
     <section className="bg-ink text-ink-foreground">
-      <div className="mx-auto max-w-7xl px-5 py-24 md:px-10 md:py-6">
-        <h2 className="text-4xl font-semibold leading-[1.05]">Conheça de perto o universo da ADD SKY.</h2>
-        <div className="mt-12 rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-5 sm:p-8 md:mt-6 md:p-5">
+      <div className="mx-auto max-w-7xl px-5 py-24 md:grid md:grid-cols-12 md:gap-x-6 md:px-10 md:py-32">
+        <h2 className="text-4xl font-semibold leading-[1.05] md:col-span-7 md:text-6xl">Conheça de perto o universo da ADD SKY.</h2>
+        <div className="mt-12 rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-5 sm:p-8 md:col-span-full">
           <h3 className="text-2xl font-semibold md:text-3xl">TECNAM ECHO P92 S</h3>
-          <div className="mt-5 space-y-4 leading-relaxed text-ink-foreground/85 md:mt-3 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-3 md:space-y-0 md:leading-snug">
+          <div className="mt-5 max-w-3xl space-y-4 leading-relaxed text-ink-foreground/85">
             <p>O <strong>Tecnam Echo P92 S</strong> é uma aeronave leve de dois lugares, projetada para oferecer simplicidade operacional, conforto e excelente desempenho nas atividades de instrução e treinamento de pilotos.</p>
             <p>Com configuração de asa alta, cabine com ampla visibilidade e comandos de voo que proporcionam uma experiência de pilotagem intuitiva, o P92 S é uma excelente plataforma para o desenvolvimento das habilidades fundamentais da aviação.</p>
             <p>Sua versatilidade e características de voo permitem ao aluno vivenciar diferentes etapas da formação aeronáutica, desde os primeiros contatos com os comandos da aeronave até o aperfeiçoamento das técnicas de pilotagem.</p>
             <p>O Tecnam P92 S reúne praticidade, confiabilidade e características ideais para proporcionar uma formação de qualidade, contribuindo para uma experiência de aprendizado segura e eficiente.</p>
-            <p className="border-t border-ink-foreground/15 pt-4 md:col-span-full md:pt-3">A ADD SKY possui em sua frota e como principal aeronave de instrução o PU-BBB. Aeronave modelo ECHO P92S, ano 2001 e número de séria 527, equipada com motor ROTAX912 ULS de 100hp, com velocidade de cruzeiro de 100KT, peso máximo decolagem de 500kg e autonomia de 6h.</p>
+            <p className="border-t border-ink-foreground/15 pt-4">A ADD SKY possui em sua frota e como principal aeronave de instrução o PU-BBB. Aeronave modelo ECHO P92S, ano 2001 e número de séria 527, equipada com motor ROTAX912 ULS de 100hp, com velocidade de cruzeiro de 100KT, peso máximo decolagem de 500kg e autonomia de 6h.</p>
           </div>
         </div>
-        <p className="mt-10 text-lg text-ink-foreground/70 md:mt-5">
+        <p className="mt-10 text-lg text-ink-foreground/70 md:col-span-full md:mt-5">
           Explore imagens das aeronaves, dos voos e do ambiente que fazem parte da rotina da escola.
         </p>
-        <div className="mt-5 grid gap-4 md:mt-3 md:max-w-4xl md:grid-cols-[2fr_1fr_1fr_2fr] md:gap-3">
+        <div className="mt-5 grid gap-4 md:col-span-full md:mt-3 md:w-full md:max-w-4xl md:grid-cols-[2fr_1fr_1fr_2fr] md:gap-3">
           {[
             { src: hangarApron, alt: "PU-BBB no pátio com o hangar ao fundo", w: 1600, h: 900, cls: "" },
             { src: cloudyRunway, alt: "PU-BBB na pista sob nuvens carregadas", w: 900, h: 1600, cls: "md:aspect-[4/5]" },
