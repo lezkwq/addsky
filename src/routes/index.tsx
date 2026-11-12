@@ -97,8 +97,8 @@ const btnGhost =
   "inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-foreground/20 px-6 text-sm font-semibold text-foreground transition hover:border-foreground hover:bg-background/60";
 
 const FLIGHT_STATS = [
-  { label: "Horas de voo", value: "+18 mil" },
-  { label: "Alunos formados", value: "+1.000" },
+  { label: "Horas de voo", value: "+19 mil" },
+  { label: "Alunos formados", value: "+1.500" },
 ];
 const GOOGLE_REVIEW_COUNT = 15;
 
