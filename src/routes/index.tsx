@@ -87,6 +87,8 @@ const NAV = [
   { href: "#inicio", label: "Início" },
   { href: "#cursos", label: "Cursos" },
   { href: "#historia", label: "Nossa história" },
+  { href: "#equipe", label: "Equipe" },
+  { href: "#frota", label: "Frota" },
   { href: "#avaliacoes", label: "Avaliações" },
   { href: "#contato", label: "Contato" },
 ];
@@ -372,7 +374,7 @@ function History() {
 function Founder() {
   const teamIntro = "Conheça quem está por trás da ADD SKY";
   return (
-    <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-24 md:grid-cols-12 md:px-10 md:py-36">
+    <section id="equipe" className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-24 md:grid-cols-12 md:px-10 md:py-36">
       <p className="eyebrow -mb-6 md:hidden">{teamIntro}</p>
       <img src={luiz} alt="Comandante Luiz Probst apoiado na aeronave PU-BBB" loading="lazy" width={1066} height={1600} className="aspect-square w-full rounded-2xl object-cover object-[center_35%] md:col-span-6" />
       <div className="md:col-span-5 md:col-start-8">
@@ -412,7 +414,7 @@ function Founder() {
 
 function Fleet() {
   return (
-    <section className="bg-ink text-ink-foreground">
+    <section id="frota" className="bg-ink text-ink-foreground">
       <div className="mx-auto max-w-7xl px-5 py-24 md:grid md:grid-cols-12 md:gap-x-6 md:px-10 md:py-32">
         <h2 className="text-4xl font-semibold leading-[1.05] md:col-span-7 md:text-6xl">Conheça de perto o universo da ADD SKY.</h2>
         <div className="mt-12 rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-5 sm:p-8 md:col-span-full">
