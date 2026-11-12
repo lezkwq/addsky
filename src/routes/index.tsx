@@ -90,6 +90,7 @@ const NAV = [
   { href: "#equipe", label: "Equipe" },
   { href: "#frota", label: "Frota" },
   { href: "#avaliacoes", label: "Avaliações" },
+  { href: "#faq", label: "FAQ" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -517,7 +518,7 @@ const FAQ = [
 
 function Faq() {
   return (
-    <section className="bg-secondary">
+    <section id="faq" className="bg-secondary">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 md:grid-cols-12 md:px-10 md:py-32">
         <h2 className="text-4xl font-semibold leading-[1.05] md:col-span-4 md:text-5xl">Dúvidas antes de começar?</h2>
         <Accordion type="single" collapsible className="md:col-span-7 md:col-start-6">
