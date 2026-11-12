@@ -260,7 +260,6 @@ function Intro() {
       </div>
       <figure className="relative md:col-span-7">
         <img src={pubbbFlight} alt="Aeronave PU-BBB da ADD SKY em voo sobre Blumenau, vista sob a asa" loading="lazy" width={1470} height={1070} className="aspect-[4/3] w-full rounded-2xl object-cover" style={{ boxShadow: "var(--shadow-soft)" }} />
-        <figcaption className="mt-3 text-xs text-muted-foreground">PU-BBB em voo sobre a região de Blumenau.</figcaption>
       </figure>
     </section>
   );
