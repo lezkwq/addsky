@@ -397,9 +397,16 @@ function Founder() {
         </dl>
       </div>
       <div className="grid items-center gap-8 border-t pt-12 md:col-span-12 md:grid-cols-12 md:gap-12 md:pt-16">
-        <img src={muriel} alt="Muriel Silveira, piloto da ADD SKY" loading="lazy" width={768} height={1365} className="aspect-square w-full rounded-2xl object-cover object-[center_20%] md:col-span-6" />
+        <img src={muriel} alt="Muriel Silveira, piloto da ADD SKY" loading="lazy" width={768} height={1365} className="aspect-square w-full rounded-2xl object-cover object-top md:col-span-6" />
         <div className="md:col-span-5 md:col-start-8">
           <h2 className="text-3xl font-semibold leading-tight md:text-4xl">Muriel Silveira</h2>
+          <p className="mt-2 text-muted-foreground">Instrutor de Voo</p>
+          <div className="mt-6 space-y-4 text-lg leading-relaxed">
+            <p>É profissional da aviação atuando como instrutor de voo e como piloto na aviação executiva, com mais de 800h totais. Possui licença de Piloto de Avião e Piloto Aerodesportivo e habilitações MNTE, IFR e Instrutor de Voo de CPA (INVCPA). É Gestor de Segurança Operacional e possui diversos cursos na área de Safety.</p>
+            <p>Além de sua atuação na instrução aeronáutica e na aviação executiva, possui experiência como operador aerotático em órgão de segurança pública, atividade que exige elevado nível de preparo técnico, disciplina operacional, capacidade de tomada de decisão e comprometimento com a segurança.</p>
+            <p>Sua vivência em diferentes contextos operacionais da aviação contribui para uma formação que vai além dos conhecimentos básicos de pilotagem, proporcionando aos alunos uma visão abrangente sobre responsabilidade, consciência situacional, gerenciamento de riscos e segurança de voo.</p>
+            <p>Como instrutor, tem o compromisso de transmitir conhecimentos e experiências, contribuindo para a formação de pilotos tecnicamente preparados, disciplinados e conscientes da responsabilidade envolvida na atividade aeronáutica.</p>
+          </div>
         </div>
       </div>
       <div className="grid items-center gap-8 border-t pt-12 md:col-span-12 md:grid-cols-12 md:gap-12 md:pt-16">
