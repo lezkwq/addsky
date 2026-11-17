@@ -475,46 +475,96 @@ const REVIEWS: { name: string; text: string; avatar?: string }[] = [
     avatar: ederAvatar,
     text: "Muita gente sonha em pilotar um avião e acha que é impossível. Mas não é! A ADD SKY é uma escola fantástica. O Luiz domina uma aeronave como ninguém e transmite esse conhecimento com muita dedicação e sabedoria. Tem esse sonho? Então só vai! O resto é com ele. Escola nota 1000!",
   },
+  {
+    name: "Jonathan Levy Jacinto Schulz",
+    text: "Tive o prazer de conhecer o dono dessa escola a muitos anos atrás, e desde então acompanhar o excelente trabalho dele nessa escola! Recomendo pra qualquer pessoa que queira sentir o prazer que é voar! Avião muito bem equipado com revisões sempre em dia, instrutores super qualificados e tudo muito fácil sem burocracia, é matricular e começar e ser feliz!",
+  },
+  {
+    name: "Jean Deglmann",
+    text: "Ótima escola para quem quer ser piloto de avião e ter o hobby de voar! Parabéns, Luiz, o melhor instrutor!",
+  },
+  {
+    name: "Jefferson Zomignan",
+    text: "Ensino de excelência na arte de pilotar aviões. Deixa o aluno extremamente seguro e confiante em todas as dinâmicas do voo e por consequência as manobras.",
+  },
+  {
+    name: "Miguel Severo",
+    text: "Excelente escola! Profissionais extremamente qualificados e dedicados. Super recomendo!",
+  },
+  {
+    name: "Eloisa Probst",
+    text: "Addsky com piloto Luiz✈️💙. Muito comprometimento e segurança... Profissional excelente ⭐️⭐️⭐️⭐️⭐️✈️ Realize seu sonho...✈️ …",
+  },
+  {
+    name: "Ailton Diego Cristofolini",
+    text: "A melhor escolha de aviação com absoluta certeza!",
+  },
+  {
+    name: "Eliton Silvano",
+    text: "Lugar incrível, super indico!",
+  },
+  {
+    name: "Michele",
+    text: "Lugar incrível, atendimento maravilhoso, limpo, organização impecável, recomendo e índico sempre.",
+  },
 ];
 
 function Reviews() {
   return (
-    <section id="avaliacoes" className="mx-auto max-w-7xl px-5 py-24 md:px-10 md:py-36">
-      <div className="grid gap-10 md:grid-cols-12">
-        <div className="md:col-span-5">
-          <p className="eyebrow">Avaliações de alunos</p>
-          <h2 className="mt-5 text-4xl font-semibold leading-[1.05] md:text-5xl">Quem vive a experiência tem muito a contar.</h2>
-          <div className="mt-10 flex items-center gap-4">
-            <span className="font-display text-6xl font-semibold">5,0</span>
-            <div>
-              <div className="flex text-signal" aria-label="5 de 5 estrelas">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-current" />
-                ))}
-              </div>
-              <p className="mt-1 text-sm text-muted-foreground">{GOOGLE_REVIEW_COUNT} avaliações no Google</p>
-            </div>
+    <section id="avaliacoes" className="overflow-hidden py-24 md:py-36">
+      <div className="mx-auto max-w-7xl px-5 md:px-10">
+        <div className="grid gap-10 md:grid-cols-12 md:items-end">
+          <div className="md:col-span-7">
+            <p className="eyebrow">Avaliações de alunos</p>
+            <h2 className="mt-5 text-4xl font-semibold leading-[1.05] md:text-5xl">Quem vive a experiência tem muito a contar.</h2>
           </div>
-          <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`${btnGhost} mt-10`}>
-            Ver avaliações no Google <ArrowUpRight className="h-4 w-4" />
-          </a>
-        </div>
-        <ul className="divide-y border-y md:col-span-6 md:col-start-7">
-          {REVIEWS.map((r) => (
-            <li key={r.name} className="py-8">
-              <blockquote className="text-lg leading-relaxed">{r.text}</blockquote>
-              <div className="mt-4 flex items-center gap-3">
-                <Avatar aria-hidden="true">
-                  <AvatarImage src={r.avatar} alt="" className="object-cover" />
-                  <AvatarFallback className="bg-secondary text-sm font-semibold text-accent">
-                    {r.name.split(" ").slice(0, 2).map((name) => name[0]).join("")}
-                  </AvatarFallback>
-                </Avatar>
-                <p className="text-sm font-semibold">{r.name}</p>
+          <div className="flex flex-wrap items-end justify-between gap-6 md:col-span-5">
+            <div className="flex items-center gap-4">
+              <span className="font-display text-6xl font-semibold">5,0</span>
+              <div>
+                <div className="flex text-signal" aria-label="5 de 5 estrelas">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-current" />
+                  ))}
+                </div>
+                <p className="mt-1 text-sm text-muted-foreground">{GOOGLE_REVIEW_COUNT} avaliações no Google</p>
               </div>
-            </li>
+            </div>
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={btnGhost}>
+              Ver no Google <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="mt-12 overflow-hidden">
+        <div className="reviews-marquee-track flex w-max">
+          {[0, 1].map((copy) => (
+            <ul key={`review-group-${copy}`} className="flex shrink-0 gap-5 pr-5 md:gap-6 md:pr-6" aria-label={copy === 0 ? "Depoimentos de alunos da ADD SKY" : undefined} aria-hidden={copy === 1}>
+              {REVIEWS.map((r) => (
+                <li key={r.name} className="w-[82vw] max-w-sm shrink-0">
+                  <article className="flex min-h-[26rem] h-full flex-col rounded-2xl border bg-card p-6 shadow-sm md:p-7">
+                    <div className="flex items-center justify-between gap-4">
+                      <Avatar aria-hidden="true" className="h-12 w-12 border border-border">
+                        <AvatarImage src={r.avatar} alt="" className="object-cover" />
+                        <AvatarFallback className="bg-secondary text-sm font-semibold text-accent">
+                          {r.name.split(" ").slice(0, 2).map((name) => name[0]).join("")}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="flex shrink-0 text-signal" role="img" aria-label="5 de 5 estrelas">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star key={i} className="h-4 w-4 fill-current" aria-hidden="true" />
+                        ))}
+                      </div>
+                    </div>
+                    <blockquote className="mt-6 flex-1 text-base leading-relaxed">“{r.text}”</blockquote>
+                    <p className="mt-6 border-t pt-4 text-sm font-semibold">{r.name}</p>
+                    <p className="mt-1 text-xs text-muted-foreground">Avaliação no Google</p>
+                  </article>
+                </li>
+              ))}
+            </ul>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

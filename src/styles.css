@@ -137,6 +137,15 @@
   to { opacity: 1; transform: none; }
 }
 
+.reviews-marquee-track {
+  animation: reviews-marquee 120s linear infinite;
+  will-change: transform;
+}
+
+@keyframes reviews-marquee {
+  to { transform: translateX(-50%); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
