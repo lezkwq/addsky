@@ -496,14 +496,6 @@ const REVIEWS: { name: string; text: string; avatar?: string }[] = [
     text: "Addsky com piloto Luiz✈️💙. Muito comprometimento e segurança... Profissional excelente ⭐️⭐️⭐️⭐️⭐️✈️ Realize seu sonho...✈️ …",
   },
   {
-    name: "Ailton Diego Cristofolini",
-    text: "A melhor escolha de aviação com absoluta certeza!",
-  },
-  {
-    name: "Eliton Silvano",
-    text: "Lugar incrível, super indico!",
-  },
-  {
     name: "Michele",
     text: "Lugar incrível, atendimento maravilhoso, limpo, organização impecável, recomendo e índico sempre.",
   },
@@ -539,10 +531,10 @@ function Reviews() {
       <div className="mt-12 overflow-hidden">
         <div className="reviews-marquee-track flex w-max">
           {[0, 1].map((copy) => (
-            <ul key={`review-group-${copy}`} className="flex shrink-0 gap-5 pr-5 md:gap-6 md:pr-6" aria-label={copy === 0 ? "Depoimentos de alunos da ADD SKY" : undefined} aria-hidden={copy === 1}>
+            <ul key={`review-group-${copy}`} className="flex shrink-0 gap-5 pr-5 md:items-start md:gap-3 md:pr-3" aria-label={copy === 0 ? "Depoimentos de alunos da ADD SKY" : undefined} aria-hidden={copy === 1}>
               {REVIEWS.map((r) => (
                 <li key={r.name} className="w-[82vw] max-w-sm shrink-0">
-                  <article className="flex min-h-[26rem] h-full flex-col rounded-2xl border bg-card p-6 shadow-sm md:p-7">
+                  <article className="flex min-h-[26rem] h-full flex-col rounded-2xl border bg-card p-6 shadow-sm md:h-auto md:min-h-0 md:p-7">
                     <div className="flex items-center justify-between gap-4">
                       <Avatar aria-hidden="true" className="h-12 w-12 border border-border">
                         <AvatarImage src={r.avatar} alt="" className="object-cover" />
@@ -556,7 +548,7 @@ function Reviews() {
                         ))}
                       </div>
                     </div>
-                    <blockquote className="mt-6 flex-1 text-base leading-relaxed">“{r.text}”</blockquote>
+                    <blockquote className="mt-6 flex-1 text-base leading-relaxed md:flex-none">“{r.text}”</blockquote>
                     <p className="mt-6 border-t pt-4 text-sm font-semibold">{r.name}</p>
                     <p className="mt-1 text-xs text-muted-foreground">Avaliação no Google</p>
                   </article>

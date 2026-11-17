@@ -138,7 +138,7 @@
 }
 
 .reviews-marquee-track {
-  animation: reviews-marquee 120s linear infinite;
+  animation: reviews-marquee 110s linear infinite;
   will-change: transform;
 }
 
